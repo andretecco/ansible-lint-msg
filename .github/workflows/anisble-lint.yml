@@ -11,12 +11,12 @@ jobs:
       - name: Run ansible-lint
         uses: ansible/ansible-lint@v6
 
-steps:
-  - name: Notify discord
-    uses: th0th/notify-discord@v0.4.1
-    if: ${{ always() }}
-    env:
-      DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_LINT }}
-      GITHUB_ACTOR: ${{ github.actor }}
-      GITHUB_JOB_NAME: ${{ EVENT_PAYLOAD.repository.full_name }}
-      GITHUB_JOB_STATUS: ${{ job.status }}
+
+      - name: Notify discord
+        uses: th0th/notify-discord@v0.4.1
+        if: ${{ always() }}
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_LINT }}
+          GITHUB_ACTOR: ${{ github.actor }}
+          GITHUB_JOB_NAME: ${{ EVENT_PAYLOAD.repository.full_name }}
+          GITHUB_JOB_STATUS: ${{ job.status }}
