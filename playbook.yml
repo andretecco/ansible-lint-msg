@@ -1,6 +1,7 @@
 ---
-- hosts: all
+- name: Executando em todos os hosts
+  hosts: all
   gather_facts: true
-  become: yes
+  become: true
   roles:
   - ansible-lint-msg
