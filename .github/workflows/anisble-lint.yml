@@ -21,4 +21,3 @@ jobs:
           GITHUB_ACTOR: ${{ github.actor }}
           GITHUB_JOB_NAME: ${{ github.event.repository.name }}
           GITHUB_JOB_STATUS: ${{ job.status }}
-          GITHUB_DESCRIPTION: ${{ GITHUB_OUTPUT }}
