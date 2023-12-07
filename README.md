@@ -1,2 +1,2 @@
 # ansible-lint-msg
-Testando msg para o Discord e Ansible Lint
+Testes com envio de msg para o discord e testes com Ansible Lint
