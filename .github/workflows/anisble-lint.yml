@@ -10,7 +10,19 @@ jobs:
       - uses: actions/checkout@v4
       - name: Run ansible-lint
         uses: ansible/ansible-lint@v6
-
+      - name: Store ansible-lint output on failure
+        if: ${{ failure() }}
+        id: store-ansible-lint-output
+        run: echo "::set-output name=ansible-lint-output::$(cat ansible-lint.txt)"
+      - name: Add error annotations
+        if: ${{ failure() }}
+        run: |
+          ERROR_MSG=$(echo "${{ steps.store-ansible-lint-output.outputs.ansible-lint-output }}")
+          if [ -n "$ERROR_MSG" ]; then
+            echo "::error::$ERROR_MSG"
+          else
+            echo "::error::Erro não identificado durante a execução do Ansible Lint"
+          fi
 
       - name: Notify discord
         uses: th0th/notify-discord@v0.4.1
