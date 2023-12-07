@@ -19,4 +19,3 @@ jobs:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_LINT }}
           GITHUB_ACTOR: ${{ github.actor }}
           GITHUB_JOB_NAME: ${{ github.event.repository.name }}
-          
