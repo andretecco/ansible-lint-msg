@@ -1,5 +1,7 @@
 name: ansible-lint
 on:
+  push:
+    branches: ["dev"]
   pull_request:
     branches: ["*"]
 jobs:
@@ -10,8 +12,6 @@ jobs:
       - uses: actions/checkout@v4
       - name: Run ansible-lint
         uses: ansible/ansible-lint@v6
-
-
       - name: Notify discord
         uses: th0th/notify-discord@v0.4.1
         if: ${{ always() }}
@@ -19,4 +19,4 @@ jobs:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_LINT }}
           GITHUB_ACTOR: ${{ github.actor }}
           GITHUB_JOB_NAME: ${{ github.event.repository.name }}
-          GITHUB_JOB_STATUS: ${{ job.status }}
+          

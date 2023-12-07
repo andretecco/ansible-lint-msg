@@ -1,4 +1,4 @@
 ---
 - name: Testando Ansible Lint
-  debug:
-  msg: "Testando Ansible Lint"
+  ansible.builtin.debug:
+    msg: "Testando Ansible Lint"
