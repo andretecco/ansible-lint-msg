@@ -1,2 +1,3 @@
-# ansible-lint-msg
-Testando msg para o Discord e Ansible Lint
+# Repo Ansible Lint 
+
+>Repositório destinado a efetuar testes utilizando o Ansible Lint, Discord e Github Actions
