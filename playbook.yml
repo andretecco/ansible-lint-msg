@@ -1,6 +1,6 @@
 ---
 - name: Executando em todos os hosts
-  hosts: all
+  hosts: "{{ ansible_play_host | default ([]) }}"
   gather_facts: true
   become: true
   roles:
